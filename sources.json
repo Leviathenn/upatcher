@@ -1,14 +1,14 @@
 {
-    "toolSources":[
+    "ToolSources":[
         {
             "url":"tunnelassetprod.blob.core.windows.com/cli",
             "cfg":{
-                "windows": "defualt",
-                "linux":"linux-x64"
+                "windows": "$TOOL.exe",
+                "linux":"linux-x64-$TOOL"
             }
         }
     ],
-    "sources":[
+    "Sources":[
         {
             "url":"https://github.com/Leviathenn/upatches",
             "destros":[

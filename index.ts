@@ -5,6 +5,10 @@ import crypto from "node:crypto"
 import { temp } from "./tools/temp.ts";
 import { time, timeEnd } from "node:console"
 import { writeFileSync } from "node:fs";
+import type { ISource } from "./Interfaces/ISource.ts";
+import type { ITSource } from "./Interfaces/ITSource.ts";
+import { ToolSources } from "./parser/sources.ts";
+import type { ISF } from "./Interfaces/ISF.ts";
 
 let APP_VERSION = "0.1.0"
 let APP_RAW = "https://raw.githubusercontent.com/Leviathenn/upatcher/main"
@@ -29,25 +33,33 @@ console.log(`
     BUILT AND COMPILED WITH DENO
     SOURCES FILE HOSTED ON GITHUB FOR CUSTOM SOURCES SEE GUIDE.
     WRITIN IN TYPESCRIPT
+    
+    PATCHES ARE NOT VERIFED BEFORE UPLOAD. THIS MEANS YOU MIGHT INSTALL A PATCH WITH MALWARE.
+    TO BE SURE ITS NOT, TRY AND GO FOR PATCHES THAT SAY VERIFIED. OTHERWISE YOU'RE AT RISK!
+    
     LICENSE IS MIT BY USING YOU ACCEPT TO THESE TERMS. ENJOY! 
-
 `)
-//await setTimeout(1000);
+let tempd = new temp();
+await setTimeout(1000);
 
 const lSpinner = new Spinner().start("Retriving Sources.. "); 
 
-let tempd = new temp();
-let sourcesFile: string = "";
+
 axios.get(`${APP_RAW}/sources.json`).then((res)=>{
-    sourcesFile = tempd.write(JSON.stringify(res["data"]));
+    let sourcesFile: ISF = res.data; 
     lSpinner.succeed("Retrived Sources.");
-    console.log(sourcesFile);
+;
+    let Sources: ISource[] = sourcesFile["Sources"];
+    let ToolSource: ITSource[] = sourcesFile["ToolSources"]; 
+    console.log(ToolSource)
+    let tsc = new ToolSources(ToolSource);
+    tsc.get({tool: "devtunnel",selected:"windows",path:"./devtunnel.exe",callback:(c: boolean)=>{
+        console.log(c);
+    }})
+
+
+timeEnd();
 }).catch((err)=>{
     lSpinner.failed("Could not Retrive sources. Check the \"error.log\" file for more info.");
     writeFileSync("error.log",err.toString());
 })
-
-//let src: source = new source("sources.list");
-//src.get();
-
-timeEnd();

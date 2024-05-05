@@ -1,1 +1,1 @@
-Error: ENOENT: no such file or directory, write
+TypeError: Cannot read properties of undefined (reading 'map')
