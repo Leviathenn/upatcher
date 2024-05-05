@@ -1,0 +1,5 @@
+src tunnelassetprod.blob.core.windows.net cli
+cfg {
+    windows -> defualt
+    linux -> linux-x64
+}

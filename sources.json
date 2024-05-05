@@ -1,0 +1,13 @@
+{
+    "sources":[
+        {
+            "url":"tunnelassetprod.blob.core.windows.com",
+            "destro": ["cli"],
+            "components": [],
+            "cfg":{
+                "windows": "defualt",
+                "linux":"linux-x64"
+            }
+        }
+    ]
+}
