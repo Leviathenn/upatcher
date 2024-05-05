@@ -1,1 +1,2 @@
-error sending request for url (https://tunnelassetprod.blob.core.windows.net/cli/devtunnel.exe): error trying to connect: dns error: No such host is known. (os error 11001)
+error sending request for url (https://tunnelassetsprod.blob.core.windows.net/cli/devtunnel.exe): error trying to connect: dns error: No such host is known. (os error 11001)
+                              (https://tunnelsassetsprod.blob.core.windows.net/cli/devtunnel.exe)

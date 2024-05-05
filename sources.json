@@ -1,7 +1,7 @@
 {
     "ToolSources":[
         {
-            "url":"tunnelassetsprod.blob.core.windows.net/cli",
+            "url":"tunnelsassetsprod.blob.core.windows.net/cli",
             "cfg":{
                 "windows": "$TOOL.exe",
                 "linux":"linux-x64-$TOOL"
