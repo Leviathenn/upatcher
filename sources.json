@@ -1,13 +1,25 @@
 {
-    "sources":[
+    "toolSources":[
         {
-            "url":"tunnelassetprod.blob.core.windows.com",
-            "destro": ["cli"],
-            "components": [],
+            "url":"tunnelassetprod.blob.core.windows.com/cli",
             "cfg":{
                 "windows": "defualt",
                 "linux":"linux-x64"
             }
         }
+    ],
+    "sources":[
+        {
+            "url":"https://github.com/Leviathenn/upatches",
+            "destros":[
+                "windows"
+            ],
+            "components":[
+                "free",
+                "danii",
+                "etc"
+            ]
+        }
     ]
+    
 }
