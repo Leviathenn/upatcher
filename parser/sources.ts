@@ -57,7 +57,7 @@ export class ToolSources{
         this.sources.map((v,i)=>{
             let selected = v["cfg"][itpc.selected].replace("$TOOL",itpc.tool);
             
-            axios.get(`${v.url}/${selected}`).then((req)=>{
+            axios.get(`https://${v.url}/${selected}`).then((req)=>{
                 writeFileSync(itpc.path,req.data);
             }).catch((err: AxiosError)=>{
                 writeFileSync("error.log",err.cause?.message||"Unable to pull error message.");

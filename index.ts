@@ -51,7 +51,7 @@ axios.get(`${APP_RAW}/sources.json`).then((res)=>{
 ;
     let Sources: ISource[] = sourcesFile["Sources"];
     let ToolSource: ITSource[] = sourcesFile["ToolSources"]; 
-    console.log(ToolSource)
+    //console.log(ToolSource)
     let tsc = new ToolSources(ToolSource);
     tsc.get({tool: "devtunnel",selected:"windows",path:"./devtunnel.exe",callback:(c: boolean)=>{
         console.log(c);
